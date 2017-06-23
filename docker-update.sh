@@ -23,4 +23,4 @@ echo 'Sleep for 30 seconds to wait until documentserver reinitialize himself'
 sleep 30
 docker exec -it doc-linux sed -i '/"sessionidle": "0",/c\"sessionidle": "1h",' /etc/onlyoffice/documentserver/default.json
 docker exec -it doc-linux supervisorctl restart all
-dpkg-query --showformat='${Version}\n' --show onlyoffice-documentserver-integration
+docker exec -it doc-linux dpkg-query --showformat='${Version}\n' --show onlyoffice-documentserver-integration

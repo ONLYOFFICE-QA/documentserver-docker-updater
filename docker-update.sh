@@ -1,4 +1,9 @@
 #!/usr/bin/env bash
+VERSION=$1
+if [ -z "${VERSION}" ]; then
+    echo "VERSION is unset. Use 'latest' as docker version"
+    VERSION=latest
+fi
 date_time=$(date +"%Y-%m-%d-%H-%M")
 log_folder=/var/log/onlyoffice/documentserver/${date_time}/log
 files_folder=/var/log/onlyoffice/documentserver/${date_time}/files
@@ -12,5 +17,5 @@ docker run -i -t -d -p 80:80 -p 443:443 --name doc-linux \
  -v /opt/onlyoffice/Data:/var/www/onlyoffice/Data \
  -v ${log_folder}:/var/log/onlyoffice/documentserver \
  -v ${files_folder}:/var/lib/onlyoffice/documentserver/App_Data/cache/files/error \
- onlyoffice/4testing-documentserver-integration:latest
+ onlyoffice/4testing-documentserver-integration:${VERSION}
 bash after-run.sh

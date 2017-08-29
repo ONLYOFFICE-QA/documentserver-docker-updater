@@ -10,3 +10,9 @@ mkdir -pv ~/bin
 cp doc-linux-docker-updater/doc-linux-connect ~/bin
 cp doc-linux-docker-updater/doc-linux-update ~/bin
 ```
+
+# Usage
+
+`doc-linux-connect` - just connect to doc-linux.teamlab.info via ssh  
+`doc-linux-update` - update doc-linux to `latest` docker tag  
+`doc-linux-update 5.0.0.56` - update to specific docker tag (`5.0.0.56`)

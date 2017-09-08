@@ -10,6 +10,7 @@ mkdir -pv ~/bin
 cp doc-linux-docker-updater/doc-linux-connect ~/bin
 cp doc-linux-docker-updater/doc-linux-update ~/bin
 ```
+Start new terminal window - and commands should be available. 
 
 # Usage
 

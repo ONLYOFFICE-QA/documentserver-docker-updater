@@ -6,4 +6,4 @@ docker exec -it doc-linux sed -i '/"sessionidle": "0",/c\"sessionidle": "1h",' /
 docker exec -it doc-linux supervisorctl restart all
 docker cp archive-share-libs.sh doc-linux:/tmp/archive-share-libs.sh
 docker exec -it doc-linux bash /tmp/archive-share-libs.sh
-docker exec -it doc-linux dpkg-query --showformat='${Version}\n' --show onlyoffice-documentserver-integration
+docker exec -it doc-linux dpkg-query --showformat='${Version}\n' --show onlyoffice-documentserver-ie

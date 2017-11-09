@@ -18,7 +18,7 @@ docker run -i -t -d -p 80:80 -p 443:443 --name doc-linux \
  -v ${log_folder}:/var/log/onlyoffice/documentserver \
  -v ${files_folder}:/var/lib/onlyoffice/documentserver/App_Data/cache/files/error \
  -e JWT_ENABLED=true \
- -e JWT_SECRET=piska \
- -e JWT_HEADER=popka \
+ -e JWT_SECRET=doc-linux \
+ -e JWT_HEADER=AuthorizationJwt \
  onlyoffice/4testing-documentserver-ie:${VERSION}
 bash after-run.sh

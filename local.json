@@ -1,0 +1,9 @@
+{  
+    "services":{  
+       "CoAuthoring":{  
+          "expire":{  
+             "sessionidle": "1m"
+          }
+       }
+    }
+ }

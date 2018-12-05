@@ -5,6 +5,7 @@ docker exec -it doc-linux json -f /etc/onlyoffice/documentserver/default.json -I
 docker exec -it doc-linux json -f /etc/onlyoffice/documentserver/default.json -I -e 'this.services.CoAuthoring.autoAssembly.enable=true'
 
 docker exec -it doc-linux sed -i 's/WARN/ALL/g' /etc/onlyoffice/documentserver/log4js/production.json
+docker exec -it doc-linux sed 's,autostart=false,autostart=true,' -i /etc/supervisor/conf.d/onlyoffice-documentserver-example.conf
 docker exec -it doc-linux supervisorctl restart all
 docker cp archive-share-libs.sh doc-linux:/tmp/archive-share-libs.sh
 docker exec -it doc-linux bash /tmp/archive-share-libs.sh

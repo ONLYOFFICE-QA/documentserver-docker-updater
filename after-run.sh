@@ -3,7 +3,7 @@ sleep 30
 JSON_EXE=/var/www/onlyoffice/documentserver/npm/json
 
 docker exec -it doc-linux $JSON_EXE -f /etc/onlyoffice/documentserver/default.json -I -e 'this.services.CoAuthoring.expire.sessionidle="1h"'
-docker exec -it doc-linux $JSON_EXE -f /var/www/onlyoffice/documentserver/npm/json -f /etc/onlyoffice/documentserver/default.json -I -e 'this.services.CoAuthoring.autoAssembly.enable=true'
+docker exec -it doc-linux $JSON_EXE -f /etc/onlyoffice/documentserver/default.json -I -e 'this.services.CoAuthoring.autoAssembly.enable=true'
 
 docker exec -it doc-linux sed -i 's/WARN/ALL/g' /etc/onlyoffice/documentserver/log4js/production.json
 docker exec -it doc-linux sed 's,autostart=false,autostart=true,' -i /etc/supervisor/conf.d/ds-example.conf

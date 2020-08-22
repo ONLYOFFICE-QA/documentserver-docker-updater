@@ -10,4 +10,3 @@ jobs:
       run: |
         npm install -g markdownlint-cli
         markdownlint *.md
-

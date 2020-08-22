@@ -12,7 +12,7 @@ mkdir -pv ${files_folder}
 chmod -R 777 ${log_folder}
 chmod -R 777 ${files_folder}
 bash stop-service.sh
-docker run -i -t -d -p 80:80 -p 443:443 --name doc-linux \
+docker run -i -t -d -p 80:80 -p 443:443 --name DocumentServer \
  --restart=always \
  -v /usr/share/fonts:/usr/share/fonts/custom \
  -v /opt/onlyoffice/Data:/var/www/onlyoffice/Data \

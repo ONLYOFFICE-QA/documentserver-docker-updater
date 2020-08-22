@@ -5,6 +5,7 @@
 ### New Features
 
 * Add `connect` and `update` scripts for `kim.teamlab.info`
+* Add `markdownlint` check via GitHub Actions
 
 ### Changes
 

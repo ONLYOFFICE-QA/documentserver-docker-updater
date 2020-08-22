@@ -8,10 +8,10 @@ Bash scripts for updating doc-linux.teamlab.info
 ssh-copy-id root@doc-linux.teamlab.info
 git clone https://github.com/onlyoffice-testing-robot/documentserver-docker-updater.git
 mkdir -pv ~/bin
-cp doc-linux-docker-updater/doc-linux-connect ~/bin
-cp doc-linux-docker-updater/doc-linux-update ~/bin
-cp doc-linux-docker-updater/kim-connect ~/bin
-cp doc-linux-docker-updater/kim-update ~/bin
+ln -s $PWD/doc-linux-connect $HOME/bin/doc-linux-connect
+ln -s $PWD/doc-linux-update $HOME/doc-linux-update
+ln -s $PWD/kim-connect $HOME/bin/kim-connect
+ln -s $PWD/kim-update $HOME/bin/kim-update
 ```
 
 Start new terminal window - and commands should be available.

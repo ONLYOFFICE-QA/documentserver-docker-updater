@@ -9,3 +9,5 @@
 ### Changes
 
 * Change container name to more generic `DocumentServer`
+* Change repo name from `doc-linux-docker-updater` to
+  `documentserver-docker-updater`

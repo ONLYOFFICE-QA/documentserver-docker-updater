@@ -10,7 +10,7 @@ ssh-copy-id root@kim.teamlab.info
 git clone https://github.com/onlyoffice-testing-robot/documentserver-docker-updater.git
 mkdir -pv ~/bin
 ln -s $PWD/doc-linux-connect $HOME/bin/doc-linux-connect
-ln -s $PWD/doc-linux-update $HOME/doc-linux-update
+ln -s $PWD/doc-linux-update $HOME/bin/doc-linux-update
 ln -s $PWD/kim-connect $HOME/bin/kim-connect
 ln -s $PWD/kim-update $HOME/bin/kim-update
 ```

@@ -6,6 +6,7 @@ Bash scripts for updating doc-linux.teamlab.info
 
 ```shell script
 ssh-copy-id root@doc-linux.teamlab.info
+ssh-copy-id root@kim.teamlab.info
 git clone https://github.com/onlyoffice-testing-robot/documentserver-docker-updater.git
 mkdir -pv ~/bin
 ln -s $PWD/doc-linux-connect $HOME/bin/doc-linux-connect
@@ -18,6 +19,10 @@ Start new terminal window - and commands should be available.
 
 ## Usage
 
-`doc-linux-connect` - just connect to doc-linux.teamlab.info via ssh  
-`doc-linux-update` - update doc-linux to `latest` docker tag  
-`doc-linux-update 5.0.0.56` - update to specific docker tag (`5.0.0.56`)
+`doc-linux-connect` - just connect to `doc-linux.teamlab.info` via ssh  
+`doc-linux-update` - update `doc-linux.teamlab.info` to `latest` docker tag  
+`doc-linux-update 5.0.0.56` - update `doc-linux.teamlab.info` to specific docker tag (`5.0.0.56`)
+
+`kim-connect` - just connect to `kim.teamlab.info` via ssh  
+`kim-update` - update `kim.teamlab.info` to `latest` docker tag  
+`kim-update 5.0.0.56` - update `kim.teamlab.info` to specific docker tag (`5.0.0.56`)

@@ -14,3 +14,5 @@
   `documentserver-docker-updater`
 * Fix all `markdownlint` issues in `*.md` files
 * Create symbolic links for executables, instead of copying
+* Change installation and usage instruction
+  considering `kim.teamlab.info`

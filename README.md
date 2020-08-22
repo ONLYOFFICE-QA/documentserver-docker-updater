@@ -9,6 +9,8 @@ git clone https://github.com/onlyoffice-testing-robot/doc-linux-docker-updater.g
 mkdir -pv ~/bin
 cp doc-linux-docker-updater/doc-linux-connect ~/bin
 cp doc-linux-docker-updater/doc-linux-update ~/bin
+cp doc-linux-docker-updater/kim-connect ~/bin
+cp doc-linux-docker-updater/kim-update ~/bin
 ```
 Start new terminal window - and commands should be available. 
 

@@ -1,0 +1,1 @@
+ssh -t root@kim.teamlab.info "cd doc-linux-docker-updater && bash docker-update.sh $1"

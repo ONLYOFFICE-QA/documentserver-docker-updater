@@ -21,5 +21,5 @@ docker run -i -t -d -p 80:80 -p 443:443 --name DocumentServer \
  -e JWT_ENABLED=true \
  -e JWT_SECRET=doc-linux \
  -e JWT_HEADER=AuthorizationJwt \
- onlyoffice/4testing-documentserver-ie:${VERSION}
+ onlyoffice/4testing-documentserver-ee:${VERSION}
 bash after-run.sh

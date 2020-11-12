@@ -5,7 +5,6 @@ PLUGINS_REPO='sdkjs-plugins'
 TMP_PLUGINS_DIR=/tmp/$PLUGINS_REPO
 allowed_plugins=(example_work_with_content_controls helloworld)
 
-
 apt-get -y update
 apt-get -y install git
 git clone -b develop --depth 1 https://github.com/ONLYOFFICE/$PLUGINS_REPO/ $TMP_PLUGINS_DIR

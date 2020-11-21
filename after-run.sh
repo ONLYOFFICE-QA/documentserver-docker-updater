@@ -1,6 +1,6 @@
 PACKAGE_TYPE='onlyoffice-documentserver-ee'
-echo 'Sleep for 30 seconds to wait until documentserver reinitialize himself'
-sleep 30
+echo 'Sleep for 90 seconds to wait until documentserver reinitialize himself'
+sleep 90
 JSON_EXE=/var/www/onlyoffice/documentserver/npm/json
 
 docker exec -it DocumentServer $JSON_EXE -f /etc/onlyoffice/documentserver/default.json -I -e 'this.services.CoAuthoring.expire.sessionidle="1h"'

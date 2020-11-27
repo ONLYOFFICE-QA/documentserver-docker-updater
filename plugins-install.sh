@@ -3,7 +3,7 @@
 DS_PLUGINS_DIR='/var/www/onlyoffice/documentserver/sdkjs-plugins'
 PLUGINS_REPO='sdkjs-plugins'
 TMP_PLUGINS_DIR=/tmp/$PLUGINS_REPO
-allowed_plugins=(example_work_with_content_controls helloworld)
+allowed_plugins=(example_count_words_and_characters)
 
 apt-get -y update
 apt-get -y install git

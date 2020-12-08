@@ -3,7 +3,7 @@
 DS_PLUGINS_DIR='/var/www/onlyoffice/documentserver/sdkjs-plugins'
 PLUGINS_REPO='sdkjs-plugins'
 TMP_PLUGINS_DIR=/tmp/$PLUGINS_REPO
-allowed_plugins=(example_count_words_and_characters)
+allowed_plugins=(count_words_and_characters telegram example_get_and_paste_html)
 
 apt-get -y update
 apt-get -y install git

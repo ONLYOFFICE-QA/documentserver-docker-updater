@@ -15,7 +15,6 @@ do
 done
 rm -rf $TMP_PLUGINS_DIR
 
-
 own_repos_plugins=(plugin-html plugin-telegram plugin-wordscounter)
 for i in "${own_repos_plugins[@]}"
 do 

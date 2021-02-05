@@ -15,7 +15,7 @@ do
 done
 rm -rf $TMP_PLUGINS_DIR
 
-own_repos_plugins=(plugin-html plugin-telegram plugin-wordscounter)
+own_repos_plugins=(plugin-html plugin-telegram plugin-wordscounter plugin-typograf)
 for i in "${own_repos_plugins[@]}"
 do 
     git clone -b develop --depth 1 https://github.com/ONLYOFFICE/"$i" /tmp/"$i"

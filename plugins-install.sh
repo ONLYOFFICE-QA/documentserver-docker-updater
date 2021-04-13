@@ -22,3 +22,5 @@ do
     cp -r --verbose /tmp/"$i" $DS_PLUGINS_DIR
     rm -rfv /tmp/"$i"
 done
+
+supervisorctl restart all

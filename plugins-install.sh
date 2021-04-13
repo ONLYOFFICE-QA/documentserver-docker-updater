@@ -20,4 +20,5 @@ for i in "${own_repos_plugins[@]}"
 do 
     git clone -b develop --depth 1 https://github.com/ONLYOFFICE/"$i" /tmp/"$i"
     cp -r --verbose /tmp/"$i" $DS_PLUGINS_DIR
+    rm -rfv /tmp/"$i"
 done

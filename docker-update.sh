@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+
 VERSION=$1
 if [ -z "${VERSION}" ]; then
     echo "VERSION is unset. Use 'latest' as docker version"

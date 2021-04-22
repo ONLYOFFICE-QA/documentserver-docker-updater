@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 PACKAGE_TYPE='onlyoffice-documentserver-ee'
 echo 'Sleep for 90 seconds to wait until documentserver reinitialize himself'
 sleep 90

@@ -1,1 +1,3 @@
+#!/usr/bin/env bash
+
 ssh -t root@doc-linux.teamlab.info "cd documentserver-docker-updater && bash docker-update.sh $1"

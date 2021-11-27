@@ -6,6 +6,7 @@
 
 * Add `connect` and `update` scripts for `kim.teamlab.info`
 * Add `markdownlint` check via GitHub Actions
+* Enable `WOPI` by default
 
 ### Changes
 

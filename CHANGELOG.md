@@ -8,6 +8,7 @@
 * Add `markdownlint` check via GitHub Actions
 * Enable `WOPI` by default
 * Add `yamllint` check in CI
+* Add `shellcheck` check in CI
 
 ### Changes
 

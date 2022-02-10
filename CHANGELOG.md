@@ -17,3 +17,7 @@
 * Create symbolic links for executables, instead of copying
 * Change installation and usage instruction
   considering `kim.teamlab.info`
+
+### Fixes
+
+* Fix old version of `nodejs` in CI

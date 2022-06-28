@@ -18,7 +18,7 @@ docker run -i -t -d -p 80:80 -p 443:443 --name DocumentServer \
  -v /usr/share/fonts:/usr/share/fonts/custom \
  -v /opt/onlyoffice/Data:/var/www/onlyoffice/Data \
  -v "${log_folder}":/var/log/onlyoffice/documentserver \
- -v "${files_folder}":/var/lib/onlyoffice/documentserver/App_Data/cache/files/error \
+ -v "${files_folder}":/var/lib/onlyoffice/documentserver/App_Data/cache/files \
  -e JWT_ENABLED=true \
  -e JWT_SECRET=doc-linux \
  -e JWT_HEADER=AuthorizationJwt \

@@ -28,3 +28,11 @@ Start new terminal window - and commands should be available.
 `kim-connect` - just connect to `kim.teamlab.info` via ssh  
 `kim-update` - update `kim.teamlab.info` to `latest` docker tag  
 `kim-update 5.0.0.56` - update `kim.teamlab.info` to specific docker tag (`5.0.0.56`)
+
+## Update ./plugins/plugins-list-actual.json
+
+>requirements: python3, json, requests
+
+```bash
+    python3 relevant_plugins.py
+```

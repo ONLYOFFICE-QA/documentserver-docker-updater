@@ -7,7 +7,7 @@ SDKJS_PLUGIN_SOURCE = 'sdkjs-plugins/content'
 
 URL = f"{MARKETPLACE}/{BRANCH}/{SDKJS_PLUGIN_SOURCE}"
 
-print(URL) 
+print(URL)
 
 response = requests.request("GET", URL, headers={}, data={})
 
@@ -20,11 +20,10 @@ if response.status_code == 200:
         plugin_list.append(dict['name'])
 
     print(json.dumps(plugin_list))
-    
-    # # Writing JSON to a file
+
+    # Write JSON to a file
     with open('plugins-list-actual.json', 'w') as file:
         file.write(json.dumps(plugin_list))
 
-    #     json.dump(plugin_list, file)
 else:
     print(f"Failed to fetch page. Status code: {response.status_code}")

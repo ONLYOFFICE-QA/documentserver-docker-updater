@@ -34,5 +34,5 @@ Start new terminal window - and commands should be available.
 >requirements: python3, json, requests
 
 ```bash
-    python3 relevant_plugins.py
+    python3 get_plugins_script.py
 ```

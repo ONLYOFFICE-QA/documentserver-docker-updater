@@ -12,5 +12,4 @@ _install_plugins() {
     docker exec "$SERNAME" ./"$TOOLS_DIR/$PM" \
                 --directory="$SDKJS_PLUGINS_DIR" \
                 --install="$TOOLS_DIR/$ACTUAL_JSON"
-    docker exec "$SERNAME" supervisorctl restart ds:docservice
 }

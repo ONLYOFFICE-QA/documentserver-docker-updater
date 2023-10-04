@@ -22,3 +22,4 @@ docker exec -it $SERNAME sed 's,autostart=false,autostart=true,' -i /etc/supervi
 docker exec -it $SERNAME sed -i 's,access_log off,access_log /var/log/onlyoffice/documentserver/nginx.access.log,' /etc/onlyoffice/documentserver/nginx/includes/ds-common.conf
 _install_plugins $SERNAME
 docker exec -it $SERNAME dpkg-query --showformat='${Version}\n' --show $PACKAGE_TYPE
+docker exec "$SERNAME" supervisorctl restart all

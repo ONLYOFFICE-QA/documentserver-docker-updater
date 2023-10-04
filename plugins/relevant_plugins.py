@@ -1,31 +1,31 @@
 import json
 import requests
+from os import makedirs
+from os.path import join, dirname, realpath, isdir
 
 MARKETPLACE = 'https://github.com/ONLYOFFICE/onlyoffice.github.io'
 BRANCH = 'tree/master'
 SDKJS_PLUGIN_SOURCE = 'sdkjs-plugins/content'
 
 URL = f"{MARKETPLACE}/{BRANCH}/{SDKJS_PLUGIN_SOURCE}"
+PLUGIN_LIST_PATH = join(dirname(realpath(__file__)),
+                        'plugins-list-actual.json')
 
-print(URL)
 
-response = requests.request("GET", URL, headers={}, data={})
+def write_json(path: str, data: 'dict | list', mode: str = 'w') -> None:
+    makedirs(dirname(path)) if not isdir(dirname(path)) else ...
+    with open(path, mode) as file:
+        json.dump(data, file, indent=4)
+        file.write("\n")
 
-if response.status_code == 200:
-    json_pl = json.loads(response.text)
-    json_pl = json_pl['payload']['tree']['items']
 
-    plugin_names = []
-    for dict in json_pl:
-        plugin_names.append(dict['name'])
+def get_plugins() -> list:
+    with requests.request('GET', URL, headers={}, data={}) as response:
+        response.raise_for_status()
+        return [item['name'] for item in
+                json.loads(response.text)['payload']['tree']['items']]
 
-    pretty_json = json.dumps(plugin_names, indent=4)
 
-    print(pretty_json)
-
-    # Write JSON to a file
-    with open('plugins-list-actual.json', 'w') as file:
-        file.write(pretty_json)
-
-else:
-    print(f"Failed to fetch page. Status code: {response.status_code}")
+if __name__ == "__main__":
+    print(URL)
+    write_json(PLUGIN_LIST_PATH, get_plugins())

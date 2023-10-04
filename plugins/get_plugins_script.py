@@ -20,7 +20,7 @@ def write_json(path: str, data: 'dict | list', mode: str = 'w') -> None:
 
 
 def get_plugins() -> list:
-    with requests.request('GET', URL, headers={}, data={}) as response:
+    with requests.get(URL) as response:
         response.raise_for_status()
         return [item['name'] for item in
                 json.loads(response.text)['payload']['tree']['items']]

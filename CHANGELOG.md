@@ -4,8 +4,8 @@
 
 ### New Features
 
-* Init pluginmaster.sh containing methods for installing plug-in
-* Add `relevant_plugins.py` for update `plugins-list-actual.json`
+* Add `pluginmaster.sh` containing methods for plug-in managing
+* Add `get_plugins_script.py` for update `plugins-list-actual.json`
 * Add `connect` and `update` scripts for `kim.teamlab.info`
 * Add `markdownlint` check via GitHub Actions
 * Enable `WOPI` by default

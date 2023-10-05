@@ -15,25 +15,23 @@ PLUGIN_LIST_PATH = join(REALPATH, 'plugins-list-actual.json')
 EXCLUDED_LIST_PATH = join(REALPATH, 'excluded-plugins-list.json')
 
 
-def read_json(path: str) -> List | Dict:
+def read_json(path: str) -> List or Dict:
     with open(path, "r") as file:
         return json.load(file)
 
 
 def write_json(
         path: str,
-        data: 'dict | list',
-        exclude: 'dict | list',
+        data: List or Dict,
         mode: str = 'w'
 ) -> None:
-    makedirs(dirname(path)) if not isdir(dirname(path)) else ...
-    filtered_data = [el for el in data if el not in exclude]
+    makedirs(dirname(path)) if not isdir(dirname(path)) else None
     with open(path, mode) as file:
-        json.dump(filtered_data, file, indent=4)
+        json.dump(data, file, indent=4)
         file.write("\n")
 
 
-def get_plugins() -> list:
+def get_plugins() -> List or Dict:
     with requests.get(URL) as response:
         response.raise_for_status()
         return [item['name'] for item in
@@ -42,8 +40,6 @@ def get_plugins() -> list:
 
 if __name__ == "__main__":
     print(URL)
-    write_json(
-        PLUGIN_LIST_PATH,
-        get_plugins(),
-        read_json(EXCLUDED_LIST_PATH)
-    )
+    filtered_data = [el for el in get_plugins() if
+                     el not in read_json(EXCLUDED_LIST_PATH)]
+    write_json(PLUGIN_LIST_PATH, filtered_data)

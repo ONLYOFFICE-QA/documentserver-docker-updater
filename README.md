@@ -36,3 +36,13 @@ Start new terminal window - and commands should be available.
 ```bash
     python3 get_plugins_script.py
 ```
+
+## Updating fonts
+
+1. Add font files to repo [doc-linux-fonts](https://github.com/ONLYOFFICE-QA/doc-linux-fonts)
+2. Connect to server and update repo 
+```bash
+cd /usr/share/fonts/custom/doc-linux-fonts/
+git pull
+```
+3. Update documentserver

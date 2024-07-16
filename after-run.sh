@@ -11,9 +11,7 @@ JSON_EXE=/var/www/onlyoffice/documentserver/npm/json
 echo 'Sleep for 90 seconds to wait until documentserver reinitialize himself'
 sleep 90
 
-docker exec -it $SERNAME $JSON_EXE -f /etc/onlyoffice/documentserver/default.json -I -e 'this.services.CoAuthoring.expire.sessionidle="1h"'
 docker exec -it $SERNAME $JSON_EXE -f /etc/onlyoffice/documentserver/default.json -I -e 'this.services.CoAuthoring.autoAssembly.enable=true'
-docker exec -it $SERNAME $JSON_EXE -f /etc/onlyoffice/documentserver/default.json -I -e 'this.services.CoAuthoring.server.tokenRequiredParams=false'
 docker exec -it $SERNAME $JSON_EXE -f /etc/onlyoffice/documentserver/default.json -I -e 'this.services.CoAuthoring.expire.files=3600'
 docker exec -it $SERNAME $JSON_EXE -f /etc/onlyoffice/documentserver/default.json -I -e 'this.FileConverter.converter.errorfiles="error"'
 

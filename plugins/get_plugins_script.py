@@ -6,11 +6,11 @@ from os.path import join, dirname, realpath, isdir
 
 REALPATH = dirname(realpath(__file__))
 
-MARKETPLACE = 'https://github.com/ONLYOFFICE/onlyoffice.github.io'
-BRANCH = 'tree/master'
-SDKJS_PLUGIN_SOURCE = 'sdkjs-plugins/content'
+MARKETPLACE = 'https://api.github.com/repos/ONLYOFFICE/onlyoffice.github.io'
+SDKJS_PLUGIN_SOURCE = 'contents/sdkjs-plugins/content'
+BRANCH = 'master'
 
-URL = f"{MARKETPLACE}/{BRANCH}/{SDKJS_PLUGIN_SOURCE}"
+URL = f"{MARKETPLACE}/{SDKJS_PLUGIN_SOURCE}?ref={BRANCH}"
 PLUGIN_LIST_PATH = join(REALPATH, 'plugins-list-actual.json')
 EXCLUDED_LIST_PATH = join(REALPATH, 'excluded-plugins-list.json')
 
@@ -35,7 +35,7 @@ def get_plugins() -> List or Dict:
     with requests.get(URL) as response:
         response.raise_for_status()
         return [item['name'] for item in
-                json.loads(response.text)['payload']['tree']['items']]
+                json.loads(response.text)]
 
 
 if __name__ == "__main__":

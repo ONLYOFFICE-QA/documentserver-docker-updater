@@ -1,15 +1,12 @@
 #!/usr/bin/env bash
 
-TOOLS_DIR=/var/www/onlyoffice/documentserver/server/tools
-SDKJS_PLUGINS_DIR=/var/www/onlyoffice/documentserver/sdkjs-plugins
-PM=pluginsmanager
+SCRIPT=/usr/bin/documentserver-pluginsmanager.sh
 ACTUAL_JSON=plugins-list-actual.json
+SDKJS_PLUGINS=/var/www/onlyoffice/documentserver/sdkjs-plugins
 
 _install_plugins() {
     SERNAME="$1"
     docker cp ./plugins/"$ACTUAL_JSON" "$SERNAME":"$TOOLS_DIR"
     docker exec "$SERNAME" cat "$TOOLS_DIR/$ACTUAL_JSON"
-    docker exec "$SERNAME" ./"$TOOLS_DIR/$PM" \
-                --directory="$SDKJS_PLUGINS_DIR" \
-                --install="$TOOLS_DIR/$ACTUAL_JSON"
+    docker exec "$SERNAME" $SCRIPT --install="$SDKJS_PLUGINS/$ACTUAL_JSON"
 }

@@ -5,14 +5,11 @@ from os import makedirs
 from os.path import join, dirname, realpath, isdir
 
 REALPATH = dirname(realpath(__file__))
-
-MARKETPLACE = 'https://api.github.com/repos/ONLYOFFICE/onlyoffice.github.io'
-SDKJS_PLUGIN_SOURCE = 'contents/sdkjs-plugins/content'
-BRANCH = 'master'
-
-URL = f"{MARKETPLACE}/{SDKJS_PLUGIN_SOURCE}?ref={BRANCH}"
 PLUGIN_LIST_PATH = join(REALPATH, 'plugins-list-actual.json')
 EXCLUDED_LIST_PATH = join(REALPATH, 'excluded-plugins-list.json')
+CONFIG = 'refs/heads/master/store/config.json'
+REPO = 'onlyoffice.github.io'
+URL = f"https://raw.githubusercontent.com/ONLYOFFICE/{REPO}/{CONFIG}"
 
 
 def read_json(path: str) -> List or Dict:

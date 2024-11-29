@@ -13,6 +13,7 @@ sleep 90
 
 docker exec -it $SERNAME $JSON_EXE -f /etc/onlyoffice/documentserver/default.json -I -e 'this.services.CoAuthoring.autoAssembly.enable=true'
 docker exec -it $SERNAME $JSON_EXE -f /etc/onlyoffice/documentserver/default.json -I -e 'this.services.CoAuthoring.expire.files=3600'
+docker exec -it $SERNAME $JSON_EXE -f /etc/onlyoffice/documentserver/default.json -I -e 'this.services.CoAuthoring.editor.maxChangesSize="10mb"'
 docker exec -it $SERNAME $JSON_EXE -f /etc/onlyoffice/documentserver/default.json -I -e 'this.FileConverter.converter.errorfiles="error"'
 
 docker exec -it $SERNAME sed -i 's/WARN/ALL/g' /etc/onlyoffice/documentserver/log4js/production.json

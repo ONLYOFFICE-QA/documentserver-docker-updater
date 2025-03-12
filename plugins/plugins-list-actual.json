@@ -5,7 +5,6 @@
     "rainbow",
     "photoeditor",
     "speech",
-    "telegram",
     "wordpress",
     "drawio",
     "highlightcode",
@@ -32,5 +31,6 @@
     "cvbuilder",
     "onlydraw",
     "pomodoro",
-    "videoembedder"
+    "videoembedder",
+    "mathtype"
 ]

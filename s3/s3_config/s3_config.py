@@ -75,7 +75,9 @@ class S3Config:
         """
         return all(
             file.exists() and file.is_file() and file.stat().st_size > 0
-            for file in [self.ENDPOINT, self.ACCESS_KEY_ID, self.SECRET_ACCESS_KEY]
+            for file in [
+                self.ENDPOINT, self.ACCESS_KEY_ID, self.SECRET_ACCESS_KEY
+            ]
         )
 
     @property

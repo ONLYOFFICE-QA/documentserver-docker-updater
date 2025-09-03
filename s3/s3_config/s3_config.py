@@ -20,7 +20,9 @@ class S3Config:
 
         :param config_path: Path to custom config file, defaults to base config
         """
-        self.config_path = Path(config_path) if config_path else self.BASE_CONFIG_JSON
+        self.config_path = (
+            Path(config_path) if config_path else self.BASE_CONFIG_JSON
+        )
         self.tmp_dir = Path(gettempdir())
         self.__base_config = None
         self.__endpoint = None
@@ -60,7 +62,9 @@ class S3Config:
         :return: Base configuration dictionary
         """
         if self.__base_config is None:
-            self.__base_config = json.loads(self._read_file(self.config_path, "Base config file"))
+            self.__base_config = json.loads(
+                self._read_file(self.config_path, "Base config file")
+            )
         return self.__base_config
 
     @property
@@ -82,7 +86,9 @@ class S3Config:
         :return: S3 access key ID
         """
         if self.__access_key_id is None:
-            self.__access_key_id = self._read_file(self.ACCESS_KEY_ID, "Access Key ID file")
+            self.__access_key_id = self._read_file(
+                self.ACCESS_KEY_ID, "Access Key ID file"
+            )
         return self.__access_key_id
 
     @property
@@ -93,10 +99,13 @@ class S3Config:
         :return: S3 secret access key
         """
         if self.__secret_access_key is None:
-            self.__secret_access_key = self._read_file(self.SECRET_ACCESS_KEY, "Secret Access Key file")
+            self.__secret_access_key = self._read_file(
+                self.SECRET_ACCESS_KEY, "Secret Access Key file"
+            )
         return self.__secret_access_key
 
-    def _read_file(self, file_path: Path, file_description: str = "File") -> str:
+    def _read_file(self, file_path: Path,
+                   file_description: str = "File") -> str:
         """
         Read file content with validation that file exists and is not empty.
 
@@ -105,7 +114,9 @@ class S3Config:
         :return: File content as string
         """
         if not file_path.exists():
-            raise FileNotFoundError(f"{file_description} not found: {file_path}")
+            raise FileNotFoundError(
+                f"{file_description} not found: {file_path}"
+            )
 
         if not file_path.is_file():
             raise ValueError(f"{file_description} is not a file: {file_path}")

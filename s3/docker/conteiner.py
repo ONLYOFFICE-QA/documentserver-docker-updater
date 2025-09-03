@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from subprocess import call
 
+
 class Container:
     """
     Docker container wrapper for executing commands and copying files.

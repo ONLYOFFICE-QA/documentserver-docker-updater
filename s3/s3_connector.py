@@ -17,7 +17,9 @@ class S3Connector:
     """
     S3 connector for DocumentServer configuration management.
     """
-    CONFIG_REMOTE_PATH = Path("/etc/onlyoffice/documentserver/local-production-linux.json")
+    CONFIG_REMOTE_PATH = Path(
+        "/etc/onlyoffice/documentserver/local-production-linux.json"
+    )
     RESTART_COMMAND = "supervisorctl restart all"
 
     def __init__(self, container_name: str, config_path: str = None):
@@ -77,9 +79,17 @@ class S3Connector:
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="S3 connector for DocumentServer")
-    parser.add_argument("--name", default="DocumentServer", help="Container name (default: DocumentServer)")
-    parser.add_argument("--no-restart", action="store_true", help="Skip restarting services")
+    parser = argparse.ArgumentParser(
+        description="S3 connector for DocumentServer"
+    )
+    parser.add_argument(
+        "--name", default="DocumentServer",
+        help="Container name (default: DocumentServer)"
+    )
+    parser.add_argument(
+        "--no-restart", action="store_true",
+        help="Skip restarting services"
+    )
     args = parser.parse_args()
 
     print(

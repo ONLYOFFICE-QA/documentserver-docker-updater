@@ -9,7 +9,7 @@ class S3Config:
     S3 configuration manager for handling base config and credentials.
     """
     BASE_CONFIG_JSON = Path(__file__).parent / "base_config.json"
-    CONFIG_DIR = Path().home() / ".s3_config"
+    CONFIG_DIR = Path().home() / ".s3"
     ENDPOINT = CONFIG_DIR / "endpoint"
     ACCESS_KEY_ID = CONFIG_DIR / "accessKeyId"
     SECRET_ACCESS_KEY = CONFIG_DIR / "secretAccessKey"

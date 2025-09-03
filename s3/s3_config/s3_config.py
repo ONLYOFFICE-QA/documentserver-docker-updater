@@ -11,8 +11,8 @@ class S3Config:
     BASE_CONFIG_JSON = Path(__file__).parent / "base_config.json"
     CONFIG_DIR = Path().home() / ".s3"
     ENDPOINT = CONFIG_DIR / "endpoint"
-    ACCESS_KEY_ID = CONFIG_DIR / "accessKeyId"
-    SECRET_ACCESS_KEY = CONFIG_DIR / "secretAccessKey"
+    ACCESS_KEY_ID = CONFIG_DIR / "key"
+    SECRET_ACCESS_KEY = CONFIG_DIR / "private_key"
 
     def __init__(self, config_path: str = None):
         """
@@ -66,6 +66,17 @@ class S3Config:
                 self._read_file(self.config_path, "Base config file")
             )
         return self.__base_config
+
+    def check_config_files(self) -> bool:
+        """
+        Check if all required configuration files exist.
+
+        :return: True if all files exist, False otherwise
+        """
+        return all(
+            file.exists() and file.is_file() and file.stat().st_size > 0
+            for file in [self.ENDPOINT, self.ACCESS_KEY_ID, self.SECRET_ACCESS_KEY]
+        )
 
     @property
     def _endpoint(self) -> str:

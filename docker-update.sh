@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 VERSION=$1
+USE_S3=$2
 if [ -z "${VERSION}" ]; then
     echo "VERSION is unset. Use 'latest' as docker version"
     VERSION=latest
@@ -24,4 +25,5 @@ docker run -i -t -d -p 80:80 -p 443:443 --name DocumentServer \
  -e JWT_HEADER=AuthorizationJwt \
  -e WOPI_ENABLED=true \
  onlyoffice/4testing-documentserver-ee:"${VERSION}"
-bash after-run.sh
+
+bash after-run.sh "${USE_S3}"

@@ -1,0 +1,15 @@
+{
+    "storage": {
+        "name": "storage-s3",
+        "region": "us-east-1",
+        "endpoint": "",
+        "bucketName": "kim-backet",
+        "storageFolderName": "files",
+        "urlExpires": 604800,
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "sslEnabled": true,
+        "s3ForcePathStyle": false,
+        "externalHost": ""
+    }
+}

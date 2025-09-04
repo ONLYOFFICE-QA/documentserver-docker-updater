@@ -20,18 +20,37 @@ Start new terminal window - and commands should be available.
 
 ## Usage
 
-`doc-linux-connect` - just connect to `doc-linux.teamlab.info` via ssh  
-`doc-linux-update` - update `doc-linux.teamlab.info` to `latest` docker tag  
+`doc-linux-connect` - just connect to `doc-linux.teamlab.info` via ssh
+`doc-linux-update` - update `doc-linux.teamlab.info` to `latest` docker tag
 `doc-linux-update 5.0.0.56` - update `doc-linux.teamlab.info`
- to specific docker tag (`5.0.0.56`)
+to specific docker tag (`5.0.0.56`)
+`doc-linux-update latest with-s3` - update `doc-linux.teamlab.info` to `latest` docker tag with S3 integration
+`doc-linux-update 5.0.0.56 with-s3` - update `doc-linux.teamlab.info` to specific docker tag with S3 integration
 
-`kim-connect` - just connect to `kim.teamlab.info` via ssh  
-`kim-update` - update `kim.teamlab.info` to `latest` docker tag  
+`kim-connect` - just connect to `kim.teamlab.info` via ssh
+`kim-update` - update `kim.teamlab.info` to `latest` docker tag
 `kim-update 5.0.0.56` - update `kim.teamlab.info` to specific docker tag (`5.0.0.56`)
+`kim-update latest with-s3` - update `kim.teamlab.info` to `latest` docker tag with S3 integration
+`kim-update 5.0.0.56 with-s3` - update `kim.teamlab.info` to specific docker tag with S3 integration
+
+## S3 Integration
+
+DocumentServer can be configured to use Amazon S3 for file storage. When using the `with-s3` parameter, the system automatically:
+
+- Configures S3 bucket connection for DocumentServer
+- Copies S3 configuration to the container
+- Restarts DocumentServer services to apply the configuration
+
+Requirements for S3 integration:
+
+For S3 integration, you need to create `~/.s3` directory with two files:
+
+- `~/.s3/key` - contains your AWS Access Key ID
+- `~/.s3/private_key` - contains your AWS Secret Access Key
 
 ## Update ./plugins/plugins-list-actual.json
 
->requirements: python3, json, requests
+> requirements: python3, json, requests
 
 ```bash
     python3 get_plugins_script.py

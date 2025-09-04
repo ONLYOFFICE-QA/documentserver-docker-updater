@@ -20,7 +20,7 @@ docker exec -it $SERNAME sed -i 's/WARN/ALL/g' /etc/onlyoffice/documentserver/lo
 docker exec -it $SERNAME sed 's,autostart=false,autostart=true,' -i /etc/supervisor/conf.d/ds-example.conf
 docker exec -it $SERNAME sed -i 's,access_log off,access_log /var/log/onlyoffice/documentserver/nginx.access.log,' /etc/onlyoffice/documentserver/nginx/includes/ds-common.conf
 docker exec -it $SERNAME dpkg-query --showformat='${Version}\n' --show $PACKAGE_TYPE
-if [ "${USE_S3}" == "with-s3" ]; then
+if [ "${USE_S3}" == "true" ]; then
     python3 ./s3/s3_connector.py --name $SERNAME --no-restart
 fi
 

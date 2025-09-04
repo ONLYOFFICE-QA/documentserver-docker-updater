@@ -24,18 +24,23 @@ Start new terminal window - and commands should be available.
 `doc-linux-update` - update `doc-linux.teamlab.info` to `latest` docker tag
 `doc-linux-update 5.0.0.56` - update `doc-linux.teamlab.info`
 to specific docker tag (`5.0.0.56`)
-`doc-linux-update latest with-s3` - update `doc-linux.teamlab.info` to `latest` docker tag with S3 integration
-`doc-linux-update 5.0.0.56 with-s3` - update `doc-linux.teamlab.info` to specific docker tag with S3 integration
+`doc-linux-update latest with-s3` - update `doc-linux.teamlab.info` to
+`latest` docker tag with S3 integration
+`doc-linux-update 5.0.0.56 with-s3` - update `doc-linux.teamlab.info` to
+specific docker tag with S3 integration
 
 `kim-connect` - just connect to `kim.teamlab.info` via ssh
 `kim-update` - update `kim.teamlab.info` to `latest` docker tag
 `kim-update 5.0.0.56` - update `kim.teamlab.info` to specific docker tag (`5.0.0.56`)
-`kim-update latest with-s3` - update `kim.teamlab.info` to `latest` docker tag with S3 integration
-`kim-update 5.0.0.56 with-s3` - update `kim.teamlab.info` to specific docker tag with S3 integration
+`kim-update latest with-s3` - update `kim.teamlab.info` to `latest`
+docker tag with S3 integration
+`kim-update 5.0.0.56 with-s3` - update `kim.teamlab.info` to specific
+docker tag with S3 integration
 
 ## S3 Integration
 
-DocumentServer can be configured to use Amazon S3 for file storage. When using the `with-s3` parameter, the system automatically:
+DocumentServer can be configured to use Amazon S3 for file storage.
+When using the `with-s3` parameter, the system automatically:
 
 - Configures S3 bucket connection for DocumentServer
 - Copies S3 configuration to the container

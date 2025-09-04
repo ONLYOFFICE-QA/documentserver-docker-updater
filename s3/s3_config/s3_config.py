@@ -10,7 +10,6 @@ class S3Config:
     """
     BASE_CONFIG_JSON = Path(__file__).parent / "base_config.json"
     CONFIG_DIR = Path().home() / ".s3"
-    ENDPOINT = CONFIG_DIR / "endpoint"
     ACCESS_KEY_ID = CONFIG_DIR / "key"
     SECRET_ACCESS_KEY = CONFIG_DIR / "private_key"
 
@@ -37,7 +36,6 @@ class S3Config:
         :return: Complete S3 configuration dictionary
         """
         config = self.base_config.copy()
-        config["storage"]["endpoint"] = self._endpoint
         config["storage"]["accessKeyId"] = self._access_key_id
         config["storage"]["secretAccessKey"] = self._secret_access_key
         return config
@@ -76,20 +74,9 @@ class S3Config:
         return all(
             file.exists() and file.is_file() and file.stat().st_size > 0
             for file in [
-                self.ENDPOINT, self.ACCESS_KEY_ID, self.SECRET_ACCESS_KEY
+                self.ACCESS_KEY_ID, self.SECRET_ACCESS_KEY
             ]
         )
-
-    @property
-    def _endpoint(self) -> str:
-        """
-        Get S3 endpoint from file.
-
-        :return: S3 endpoint URL
-        """
-        if self.__endpoint is None:
-            self.__endpoint = self._read_file(self.ENDPOINT, "Endpoint file")
-        return self.__endpoint
 
     @property
     def _access_key_id(self) -> str:

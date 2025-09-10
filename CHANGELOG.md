@@ -4,6 +4,7 @@
 
 ### New Features
 
+* Add S3 integration support with `with-s3` parameter for automatic S3 bucket configuration
 * Add `pluginmaster.sh` containing methods for plug-in managing
 * Add `get_plugins_script.py` for update `plugins-list-actual.json`
 * Add `connect` and `update` scripts for `kim.teamlab.info`

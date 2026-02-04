@@ -29,24 +29,19 @@ if [ "$attempt" -gt "$wait_attempts" ]; then
     echo 'Warning: DocumentServer services are not ready yet'
 fi
 
-echo 'Config file permissions and owners before'
-docker exec "$SERNAME" sh -c "stat -c '%A %U:%G %n' /etc/onlyoffice/documentserver/default.json 2>/dev/null || true"
-
 # Preserve permissions/owner because json rewrites the file.
 docker exec "$SERNAME" sh -c "
     config=\"$DEFAULT_CONFIG\"
     json=\"$JSON_EXE\"
     mode=\$(stat -c '%a' \"\$config\")
     owner=\$(stat -c '%u:%g' \"\$config\")
-    \"\$json\" -f \"\$config\" -I -e 'this.services=this.services||{}; this.services.CoAuthoring=this.services.CoAuthoring||{}; this.services.CoAuthoring.autoAssembly=this.services.CoAuthoring.autoAssembly||{}; this.services.CoAuthoring.autoAssembly.enable=true'
-    \"\$json\" -f \"\$config\" -I -e 'this.services=this.services||{}; this.services.CoAuthoring=this.services.CoAuthoring||{}; this.services.CoAuthoring.expire=this.services.CoAuthoring.expire||{}; this.services.CoAuthoring.expire.files=3600'
-    \"\$json\" -f \"\$config\" -I -e 'this.services=this.services||{}; this.services.CoAuthoring=this.services.CoAuthoring||{}; this.services.CoAuthoring.editor=this.services.CoAuthoring.editor||{}; this.services.CoAuthoring.editor.maxChangesSize=\"20mb\"'
-    \"\$json\" -f \"\$config\" -I -e 'this.FileConverter=this.FileConverter||{}; this.FileConverter.converter=this.FileConverter.converter||{}; this.FileConverter.converter.errorfiles=\"error\"'
+    \"\$json\" -f \"\$config\" -I -e 'this.services.CoAuthoring.autoAssembly.enable=true'
+    \"\$json\" -f \"\$config\" -I -e 'this.services.CoAuthoring.expire.files=3600'
+    \"\$json\" -f \"\$config\" -I -e 'this.services.CoAuthoring.editor.maxChangesSize=\"20mb\"'
+    \"\$json\" -f \"\$config\" -I -e 'this.FileConverter.converter.errorfiles=\"error\"'
     chown \"\$owner\" \"\$config\"
     chmod \"\$mode\" \"\$config\"
 "
-echo 'Config file permissions and owners after'
-docker exec "$SERNAME" sh -c "stat -c '%A %U:%G %n' /etc/onlyoffice/documentserver/default.json 2>/dev/null || true"
 
 docker exec "$SERNAME" sed -i 's/WARN/ALL/g' /etc/onlyoffice/documentserver/log4js/production.json
 docker exec "$SERNAME" sed 's,autostart=false,autostart=true,' -i /etc/supervisor/conf.d/ds-example.conf

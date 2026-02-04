@@ -15,6 +15,7 @@ wait_delay=5
 attempt=1
 while [ "$attempt" -le "$wait_attempts" ]; do
     status_output=$(docker exec "$SERNAME" supervisorctl status 2>/dev/null || true)
+    echo "Status output: $status_output"
     if [ -n "$status_output" ] && printf '%s\n' "$status_output" | awk '
         $1 == "ds:docservice" {doc=$2}
         $1 == "ds:converter" {conv=$2}

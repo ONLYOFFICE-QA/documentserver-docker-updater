@@ -5,7 +5,7 @@
 ### New Features
 
 * Add S3 integration support with `with-s3` parameter for automatic S3 bucket configuration
-* Add `pluginmaster.sh` containing methods for plug-in managing
+* Add `pluginsmaster.sh` containing methods for plug-in managing
 * Add `get_plugins_script.py` for update `plugins-list-actual.json`
 * Add `connect` and `update` scripts for `kim.teamlab.info`
 * Add `markdownlint` check via GitHub Actions
@@ -16,6 +16,9 @@
 ### Changes
 
 * Remove installing plugins after update
+* Change `maxChangesSize` setting to `20mb`
+* Restructure `README.md`: add table of contents, update flow description,
+  repository structure and S3 details
 * Change container name to more generic `DocumentServer`
 * Change repo name from `doc-linux-docker-updater` to
   `documentserver-docker-updater`
